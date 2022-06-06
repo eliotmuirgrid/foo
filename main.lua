@@ -1,3 +1,4 @@
+require "validate"
 require "llp_server"
 
 local function generate_ack(Message)
@@ -31,13 +32,15 @@ local function generate_ack(Message)
       [3] = fields[10],
       [4] = ""
    }
-   
-	return table.concat(ack, delimiter) .. '\r' .. table.concat(ack2, delimiter)
+   return table.concat(ack, delimiter) .. '\r' .. table.concat(ack2, delimiter)
 end
 
-
-local msg = 'MSH|^~\&|AcmeMed|Lab|Main HIS|St. Micheals|20090621042638||ADT^A04|0A781D61A0012E7563675146B71D2C93684A872EF22CD02D20223D1DD1DE57A3|P|2.6|\rEVN||20010109042119||||20040121031807|'
+-- The main function is called when a message is received by the server,
+-- and an ACK message must be returned when it exits
 function main(Message)
-	iguana.logMessage(Message)
-	return generate_ack(Message)
+   -- log the message
+   iguana.logMessage(Message)
+   -- return ACK
+   return generate_ack(Message)
 end
+
