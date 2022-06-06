@@ -1,7 +1,7 @@
 {
     "fields": [],
-    "label": "#blank Empty project",
-    "name": "Blank",
-    "repo": "git@bitbucket.org:interfaceware/blank-template.git",
+    "label": "#HL7 LLP listener",
+    "name": "LLP Server",
+    "repo": "git@bitbucket.org:interfaceware/llp_server.git",
     "sources": []
 }
