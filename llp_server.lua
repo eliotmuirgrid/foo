@@ -19,9 +19,9 @@ local function on_data(Connection, Data)
       server.respond(Connection, MESSAGE_PREFIX .. ack .. MESSAGE_SUFFIX)
    end
    -- truncate buffer
-   local trim_position = Connection.buffer:find(".*" .. MESSAGE_SUFFIX) + 1
+   local _,trim_position = Connection.buffer:find(".*" .. MESSAGE_SUFFIX)
    if trim_position then
-      Connection.buffer = Connection.buffer:sub(trim_position)
+      Connection.buffer = Connection.buffer:sub(trim_position + 1)
    end
 end
 
