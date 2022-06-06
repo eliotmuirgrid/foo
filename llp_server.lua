@@ -1,12 +1,12 @@
-local server = require "server"
+local SVRserver = require "server"
 
 local MESSAGE_PREFIX = "\11"
 local MESSAGE_SUFFIX = "\28\13"
 
-local function on_accept(Connection)
+local function LLPonAccept(Connection)
 end
 
-local function on_data(Connection, Data)
+local function LLPonData(Connection, Data)
    -- append data to buffer
 	if not Connection.buffer then
       Connection.buffer = Data
@@ -16,7 +16,7 @@ local function on_data(Connection, Data)
    -- extract LLP messages
    for message in Connection.buffer:gmatch(MESSAGE_PREFIX .. "(.-)" .. MESSAGE_SUFFIX) do
       local ack = main(message)
-      server.respond(Connection, MESSAGE_PREFIX .. ack .. MESSAGE_SUFFIX)
+      SVRserver.respond(Connection, MESSAGE_PREFIX .. ack .. MESSAGE_SUFFIX)
    end
    -- truncate buffer
    local _,trim_position = Connection.buffer:find(".*" .. MESSAGE_SUFFIX)
@@ -28,7 +28,7 @@ end
 -- start server in run mode only
 local LIVE = not iguana.isTest()
 if LIVE then
-   server.setOnAccept(on_accept)
-   server.setOnData(on_data)
-   server.start({port = component.fields().Port})
+   SVRserver.setOnAccept(LLPonAccept)
+   SVRserver.setOnData(LLPonData)
+   SVRserver.start({port = component.fields().Port})
 end
