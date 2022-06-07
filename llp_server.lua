@@ -1,5 +1,6 @@
 local SVRserver = require "server"
 
+-- Change to use LLP prefixes and change into parameters for the parsing function
 local MESSAGE_PREFIX = "\11"
 local MESSAGE_SUFFIX = "\28\13"
 
@@ -13,11 +14,13 @@ local function LLPonData(Connection, Data)
    else
       Connection.buffer = Connection.buffer .. Data
    end
-   -- extract LLP messages
+   -- extract LLP messages - TODO - shift into LLP library
    for message in Connection.buffer:gmatch(MESSAGE_PREFIX .. "(.-)" .. MESSAGE_SUFFIX) do
       local ack = main(message)
       SVRserver.respond(Connection, MESSAGE_PREFIX .. ack .. MESSAGE_SUFFIX)
    end
+   -- END OF LLP library
+   
    -- truncate buffer
    local _,trim_position = Connection.buffer:find(".*" .. MESSAGE_SUFFIX)
    if trim_position then
