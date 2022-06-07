@@ -1,3 +1,6 @@
 [submodule "HTTP"]
 	path = HTTP
 	url = git@bitbucket.org:interfaceware/http.git
+[submodule "LLP"]
+	path = LLP
+	url = git@bitbucket.org:eliotmuir/llp.git
