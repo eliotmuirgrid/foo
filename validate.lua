@@ -1,4 +1,5 @@
 local Configs = component.fields()
+Configs.Port = 4000 -- TODO DELETE ME WHEN WE FIX CUSTOM fields.
 local CHKerrMsg
 
 local function CHKreportError()
