@@ -1,5 +1,11 @@
 {
-    "fields": [],
+    "fields": [
+        {
+            "name": "Port",
+            "type": "port",
+            "value": 65432
+        }
+    ],
     "label": "#HL7 LLP listener",
     "name": "LLP Server",
     "repo": "git@bitbucket.org:interfaceware/llp_server.git",
