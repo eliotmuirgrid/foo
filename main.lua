@@ -1,6 +1,6 @@
 require "validate"
-require "llp_server"
 require "LLP.LLPparse"
+require "LLP.LLPserver"
 
 -- The main function is called when a message is received by the server,
 -- and an ACK message must be returned when it exits
