@@ -1,3 +1,6 @@
 [submodule "LLP"]
 	path = LLP
 	url = git@bitbucket.org:interfaceware/llp.git
+[submodule "CHK"]
+	path = CHK
+	url = git@bitbucket.org:interfaceware/chk.git
