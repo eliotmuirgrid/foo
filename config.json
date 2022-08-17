@@ -5,9 +5,5 @@
             "type": "port",
             "value": 65432
         }
-    ],
-    "description": "#HL7 LLP listener",
-    "name": "LLP Server",
-    "repo": "git@bitbucket.org:interfaceware/hl7_server.git",
-    "sources": []
+    ]
 }
