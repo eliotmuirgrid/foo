@@ -3,7 +3,7 @@
         {
             "name": "Port",
             "type": "port",
-            "value": 65432
+            "default": 65432
         }
     ]
 }
