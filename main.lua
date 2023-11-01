@@ -25,6 +25,9 @@ end
 -- The main function is called when a message is received by the server
 -- An ACKnowledgement message must be returned when it exits
 function main(Message)
+   if (Message == "INIT") then
+      return
+   end
    queue.push{data=Message}
    local Ack = GenerateAck(Message)
    return Ack
