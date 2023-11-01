@@ -30,8 +30,7 @@ function main(Message)
    end
    queue.push{data=Message}
    local Ack = GenerateAck(Message)
-   iguana.logInfo(Ack, iguana.messageId())
-   iguana.logInfo("Generated ACK", iguana.messageId())
+   iguana.logInfo("Generated ACK\n"..Ack)
    return Ack
 end
 
