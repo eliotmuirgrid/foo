@@ -26,13 +26,11 @@ end
 -- An ACKnowledgement message must be returned when it exits
 function main(Message)
    if (Message == "INIT") then
+      LLPstart()
       return
    end
-   queue.push{data=Message}
+   local MessageId = queue.push{data=Message}
    local Ack = GenerateAck(Message)
-   iguana.logInfo("Generated ACK\n"..Ack)
+   iguana.logInfo("Generated ACK\n"..Ack, MessageId)
    return Ack
 end
-
---This function starts the LLP server.
-LLPstart()
